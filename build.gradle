@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
+}
+
+apply from: "https://cdn.piggypiglet.me/gradle/spigot.gradle"
+
+group 'me.piggypiglet'
+version '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+compileJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://repo.piggypiglet.me/repository/maven-releases"
+    }
+}
+
+dependencies {
+    implementation("com.google.inject:guice:4.2.3") {
+        exclude group: "com.google.guava", module: "guava"
+    }
+    implementation "me.piggypiglet:TimeAPI:1.8"
+
+    compileOnly "org.jetbrains:annotations:19.0.0"
+    spigot "1.16.2-R0.1"
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}
+
+shadowJar {
+    delete file("server/plugins/InfectedPortals")
+    destinationDirectory = file("server/plugins")
+
+    //todo: relocation
+}

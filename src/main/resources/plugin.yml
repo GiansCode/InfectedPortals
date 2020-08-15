@@ -1,0 +1,11 @@
+name: InfectedPortals
+version: @version@
+author: PiggyPiglet
+website: https://piggypiglet.me
+main: me.piggypiglet.infectedportals.bootstrap.InfectedPortalsBootstrap
+description: Overworld portals are now infected, and change the blocks around them.
+api-version: "1.16"
+commands:
+  ip:
+    aliases: ["infectedportals"]
+    description: "Main command for InfectedPortals."

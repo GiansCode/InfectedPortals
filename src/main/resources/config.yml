@@ -1,0 +1,20 @@
+radius: 7
+time_per_layer: 5 ticks - 2 secs
+ignored:
+  - air
+  - obsidian
+  - nether_portal
+  - grass
+replacements:
+  grass_block:
+    - netherrack:30
+    - magma_block:5
+    - grass_block:15
+    - crimson_nylium:15
+    - red_nether_bricks:13
+  dirt:
+    - netherrack:50
+    - dirt:15
+  sand:
+    - netherrack:50
+    - sand:50
