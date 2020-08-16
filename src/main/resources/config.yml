@@ -1,6 +1,43 @@
+# radius: 7 <-- blocks to go out from obsidian-land connections
+# time_per_layer: 5 ticks - 2 secs <-- name is a bit misleading. The latter of the range is the actual time per layer, the
+#                                      range itself is the time per block (random)
+# worlds:   <-- Which worlds should this plugin work in?
+#   - world
+# replacements:
+#   grass_block,sand,dirt,stone,granite,diorite,andesite,sandstone: <-- Which blocks should this replacement strategy respond for?
+#     0,1,2,3: <-- which layers should this specific replacement set affect? I recommend upping the parent chance, to make
+#        - netherrack:30  | it blend in with the surrounding.
+#        - magma_block:5 <-- these numbers are weights not percentages.
+#        - $parent:15 <-- $parent resolves to the matched block. e.g. grass_block, or sand
+#        - crimson_nylium:15
+#        - red_nether_bricks:13
+#      4,5:
+#        - netherrack:15
+#        - magma_block:2
+#        - $parent:30
+#        - crimson_nylium:7
+#        - red_nether_bricks:7
+#      6:
+#        - netherrack:6
+#        - $parent:45
+#        - crimson_nylium:3
+#        - red_nether_bricks:3
+# loot: <-- Items in here must be fully filled out. If you don't have a specific value, just set the property to ~
+#  - material: diamond_sword
+#    amount: 1
+#    chance: 50
+#    meta:
+#      name: "Siamond Dword"
+#      lore:
+#        - "the worst sword ever"
+#        - "jk it's not that bad"
+#      custom_model: 69
+#      unbreakable: true
+#      enchants:
+#
+#      item_flag: ~
 radius: 7
 time_per_layer: 5 ticks - 2 secs
-enabled_worlds:
 worlds:
   - world
 replacements:
@@ -23,3 +60,27 @@ replacements:
       - crimson_nylium:3
       - red_nether_bricks:3
 loot:
+  - material: diamond_sword
+    amount: 1
+    chance: 50
+    meta:
+      name: "Siamond Dword"
+      lore:
+        - "the worst sword ever"
+        - "jk it's not that bad"
+      custom_model: ~
+      unbreakable: ~
+      enchants: ~
+      item_flag: ~
+  - material: diamond_shovel
+      amount: 1
+      chance: 50
+      meta:
+        name: "Siamond Dhovel"
+        lore:
+          - "the worst shovel ever"
+          - "jk it's not that bad"
+        custom_model: ~
+        unbreakable: ~
+        enchants: ~
+        item_flag: ~
