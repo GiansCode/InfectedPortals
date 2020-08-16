@@ -50,12 +50,15 @@ public final class PortalInfectionSender implements Listener {
 
     private final Config config;
     private final PortalInfectionProcess process;
+    private final PortalLootPlacer looter;
     private final Predicate<InfectedBlock> blockFilter;
 
     @Inject
-    public PortalInfectionSender(@NotNull final Config config, @NotNull final PortalInfectionProcess process) {
+    public PortalInfectionSender(@NotNull final Config config, @NotNull final PortalInfectionProcess process,
+                                 @NotNull final PortalLootPlacer looter) {
         this.config = config;
         this.process = process;
+        this.looter = looter;
         this.blockFilter = block -> config.getReplacements().containsRow(block.getBlock().getType());
     }
 
@@ -105,6 +108,7 @@ public final class PortalInfectionSender implements Listener {
         distinctlyMerged.forEach(block -> infectedBlocks.get(block.getIteration()).add(block));
 
         process.infect(new AtomicInteger(0), infectedBlocks);
+        looter.place(distinctlyMerged);
     }
 
     @NotNull

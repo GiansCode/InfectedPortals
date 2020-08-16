@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import me.piggypiglet.infectedportals.bootstrap.InfectedPortalsBootstrap;
 import me.piggypiglet.infectedportals.utils.collection.ProbabilityCollection;
+import me.piggypiglet.infectedportals.utils.material.MaterialUtils;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -88,14 +89,6 @@ public final class ReplacementsDeserializer implements JsonDeserializer<Table<Ma
 
     @Nullable
     private static Material parseMaterial(@NotNull final String material) {
-        if (material.equalsIgnoreCase("$parent")) return PARENT;
-
-        try {
-            return Material.valueOf(material.toUpperCase());
-        } catch (final Exception exception) {
-            LOGGER.warning(material + " is not a valid material.");
-        }
-
-        return null;
+        return material.equalsIgnoreCase("$parent") ? PARENT : MaterialUtils.parseMaterial(material);
     }
 }

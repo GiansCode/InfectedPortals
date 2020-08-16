@@ -1,4 +1,4 @@
-# radius: 7 <-- blocks to go out from obsidian-land connections
+# radius: 7 <-- blocks to go out from obsidian-land connections.
 # time_per_layer: 5 ticks - 2 secs <-- name is a bit misleading. The latter of the range is the actual time per layer, the
 #                                      range itself is the time per block (random)
 # worlds:   <-- Which worlds should this plugin work in?
@@ -22,20 +22,35 @@
 #        - $parent:45
 #        - crimson_nylium:3
 #        - red_nether_bricks:3
+# loot_chance: 100 <-- this is a permillage (percentage, but 1000, not 100).
+# item_amount: 2 - 5 <-- how many items in the chest
 # loot: <-- Items in here must be fully filled out. If you don't have a specific value, just set the property to ~
-#  - material: diamond_sword
-#    amount: 1
-#    chance: 50
-#    meta:
-#      name: "Siamond Dword"
-#      lore:
+#  - material: diamond_sword <-- required
+#    amount: 1 <-- required
+#    chance: 50 <-- weight, not percentage.
+#    meta: <-- nothing in here is required, but the following keys must be present: meta.name, meta.lore, meta.custom_model,
+#      name: "Siamond Dword" | meta.unbreakable, meta.enchants, and meta.item_flags, even if they don't have explicit values.
+#      lore:                 | Simply set them to ~
 #        - "the worst sword ever"
 #        - "jk it's not that bad"
 #      custom_model: 69
 #      unbreakable: true
-#      enchants:
+#      enchants: <-- uses minecraft namespaces
+#        sharpness: 1
+#      item_flags: <-- https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/inventory/ItemFlag.html
+#        - hide_enchants
 #
-#      item_flag: ~
+# Example of an unaltered item:
+# - material: diamond_sword
+#   amount: 1
+#   chance: 1
+#   meta:
+#     name: ~
+#     lore: ~
+#     custom_model: ~
+#     unbreakable: ~
+#     enchants: ~
+#     item_flags: ~
 radius: 7
 time_per_layer: 5 ticks - 2 secs
 worlds:
@@ -59,6 +74,8 @@ replacements:
       - $parent:45
       - crimson_nylium:3
       - red_nether_bricks:3
+loot_chance: 100
+item_amount: 2 - 5
 loot:
   - material: diamond_sword
     amount: 1
@@ -71,16 +88,16 @@ loot:
       custom_model: ~
       unbreakable: ~
       enchants: ~
-      item_flag: ~
+      item_flags: ~
   - material: diamond_shovel
-      amount: 1
-      chance: 50
-      meta:
-        name: "Siamond Dhovel"
-        lore:
-          - "the worst shovel ever"
-          - "jk it's not that bad"
-        custom_model: ~
-        unbreakable: ~
-        enchants: ~
-        item_flag: ~
+    amount: 1
+    chance: 50
+    meta:
+      name: "Siamond Dhovel"
+      lore:
+        - "the worst shovel ever"
+        - "jk it's not that bad"
+      custom_model: ~
+      unbreakable: ~
+      enchants: ~
+      item_flags: ~
