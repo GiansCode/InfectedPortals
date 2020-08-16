@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 // Copyright (c) PiggyPiglet 2020
 // https://www.piggypiglet.me
 // ------------------------------
-public final class BlocksDeserializer implements JsonDeserializer<Map<Material, ProbabilityCollection<Material>>> {
+public final class ReplacementsDeserializer implements JsonDeserializer<Map<Material, ProbabilityCollection<Material>>> {
     private static final Type RAW_DESERIALIZED_MAP = new TypeToken<Map<String, Set<String>>>() {}.getType();
     private static final Pattern BLOCK_PATTERN = Pattern.compile("(.+):(\\d+)");
 

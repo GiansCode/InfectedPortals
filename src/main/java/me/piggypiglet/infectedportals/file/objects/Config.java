@@ -1,16 +1,16 @@
 package me.piggypiglet.infectedportals.file.objects;
 
+import com.google.common.collect.Table;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.inject.Singleton;
 import me.piggypiglet.infectedportals.file.annotations.File;
-import me.piggypiglet.infectedportals.file.objects.deserialization.BlocksDeserializer;
 import me.piggypiglet.infectedportals.file.objects.deserialization.IgnoredDeserializer;
+import me.piggypiglet.infectedportals.file.objects.deserialization.ReplacementsDeserializer;
 import me.piggypiglet.infectedportals.file.objects.deserialization.TimeDeserializer;
 import me.piggypiglet.infectedportals.utils.collection.ProbabilityCollection;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
 import java.util.Set;
 
 // ------------------------------
@@ -26,7 +26,7 @@ public final class Config {
     private int radius;
     @JsonAdapter(TimeDeserializer.class) private Long[] timePerLayer;
     @JsonAdapter(IgnoredDeserializer.class) private Set<Material> ignored;
-    @JsonAdapter(BlocksDeserializer.class) private Map<Material, ProbabilityCollection<Material>> replacements;
+    @JsonAdapter(ReplacementsDeserializer.class) private Table<Material, Integer, ProbabilityCollection<Material>> replacements;
 
     public int getRadius() {
         return radius;
@@ -42,7 +42,7 @@ public final class Config {
     }
 
     @NotNull
-    public Map<Material, ProbabilityCollection<Material>> getReplacements() {
+    public Table<Material, Integer, ProbabilityCollection<Material>> getReplacements() {
         return replacements;
     }
 }

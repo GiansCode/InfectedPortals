@@ -6,15 +6,21 @@ ignored:
   - nether_portal
   - grass
 replacements:
-  grass_block:
-    - netherrack:30
-    - magma_block:5
-    - grass_block:15
-    - crimson_nylium:15
-    - red_nether_bricks:13
-  dirt:
-    - netherrack:50
-    - dirt:15
-  sand:
-    - netherrack:50
-    - sand:50
+  grass_block,sand,dirt,stone,granite,diorite,andesite:
+    1,2,3,4,5:
+      - netherrack:30
+      - magma_block:5
+      - $parent:15
+      - crimson_nylium:15
+      - red_nether_bricks:13
+    6:
+      - netherrack:15
+      - magma_block:2
+      - $parent:30
+      - crimson_nylium:7
+      - red_nether_bricks:7
+    7:
+      - netherrack:6
+      - $parent:45
+      - crimson_nylium:3
+      - red_nether_bricks:3
