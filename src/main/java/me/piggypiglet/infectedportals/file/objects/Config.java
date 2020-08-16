@@ -4,7 +4,6 @@ import com.google.common.collect.Table;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.inject.Singleton;
 import me.piggypiglet.infectedportals.file.annotations.File;
-import me.piggypiglet.infectedportals.file.objects.deserialization.IgnoredDeserializer;
 import me.piggypiglet.infectedportals.file.objects.deserialization.ReplacementsDeserializer;
 import me.piggypiglet.infectedportals.file.objects.deserialization.TimeDeserializer;
 import me.piggypiglet.infectedportals.utils.collection.ProbabilityCollection;
@@ -25,7 +24,7 @@ import java.util.Set;
 public final class Config {
     private int radius;
     @JsonAdapter(TimeDeserializer.class) private Long[] timePerLayer;
-    @JsonAdapter(IgnoredDeserializer.class) private Set<Material> ignored;
+    private Set<String> worlds;
     @JsonAdapter(ReplacementsDeserializer.class) private Table<Material, Integer, ProbabilityCollection<Material>> replacements;
 
     public int getRadius() {
@@ -37,8 +36,8 @@ public final class Config {
     }
 
     @NotNull
-    public Set<Material> getIgnored() {
-        return ignored;
+    public Set<String> getWorlds() {
+        return worlds;
     }
 
     @NotNull

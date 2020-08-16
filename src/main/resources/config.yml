@@ -1,26 +1,25 @@
 radius: 7
 time_per_layer: 5 ticks - 2 secs
-ignored:
-  - air
-  - obsidian
-  - nether_portal
-  - grass
+enabled_worlds:
+worlds:
+  - world
 replacements:
-  grass_block,sand,dirt,stone,granite,diorite,andesite:
-    1,2,3,4,5:
+  grass_block,sand,dirt,stone,granite,diorite,andesite,sandstone:
+    0,1,2,3:
       - netherrack:30
       - magma_block:5
       - $parent:15
       - crimson_nylium:15
       - red_nether_bricks:13
-    6:
+    4,5:
       - netherrack:15
       - magma_block:2
       - $parent:30
       - crimson_nylium:7
       - red_nether_bricks:7
-    7:
+    6:
       - netherrack:6
       - $parent:45
       - crimson_nylium:3
       - red_nether_bricks:3
+loot:
