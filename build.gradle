@@ -40,5 +40,8 @@ shadowJar {
     delete file("server/plugins/InfectedPortals")
     destinationDirectory = file("server/plugins")
 
-    //todo: relocation
+    relocate "com.google.inject", "me.piggypiglet.infectedportals.libs.guice"
+    relocate "javax.inject", "me.piggypiglet.infectedportals.libs.javax.inject"
+    relocate "org.aopalliance", "me.piggypiglet.infectedportals.libs.aop"
+    relocate "sh.okx.timeapi", "me.piggypiglet.infectedportals.libs.time"
 }
