@@ -33,7 +33,7 @@ public final class PortalLootPlacer {
     }
 
     public void place(@NotNull final Set<InfectedBlock> blocks) {
-        if (ThreadLocalRandom.current().nextInt(0, 1000) > config.getLootChance()) return;
+        if (ThreadLocalRandom.current().nextInt(0, 1000) < config.getLootChance()) return;
 
         final Optional<Block> optionalBlock = blocks.stream()
                 .map(InfectedBlock::getBlock)

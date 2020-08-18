@@ -103,7 +103,7 @@ loot:
       item_flags: ~
   - material: diamond_sword
     amount: 1
-    chance: 50
+    chance: 100
     meta:
       name: "Test"
       lore:
@@ -116,7 +116,7 @@ loot:
       item_flags: ~
   - material: iron_sword
     amount: 1
-    chance: 50
+    chance: 100
     meta:
       name: "Test2"
       lore:
