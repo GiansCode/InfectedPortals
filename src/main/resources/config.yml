@@ -8,13 +8,13 @@
 #     0,1,2,3: <-- which layers should this specific replacement set affect? I recommend upping the parent chance, to make
 #        - netherrack:30  | it blend in with the surrounding.
 #        - magma_block:5 <-- these numbers are weights not percentages.
-#        - $parent:15 <-- $parent resolves to the matched block. e.g. grass_block, or sand
+#        - $parent:7 <-- $parent resolves to the matched block. e.g. grass_block, or sand
 #        - crimson_nylium:15
 #        - red_nether_bricks:13
 #      4,5:
 #        - netherrack:15
 #        - magma_block:2
-#        - $parent:30
+#        - $parent:23
 #        - crimson_nylium:7
 #        - red_nether_bricks:7
 #      6:
@@ -60,13 +60,13 @@ replacements:
     0,1,2,3:
       - netherrack:30
       - magma_block:5
-      - $parent:15
+      - $parent:7
       - crimson_nylium:15
       - red_nether_bricks:13
     4,5:
       - netherrack:15
       - magma_block:2
-      - $parent:30
+      - $parent:23
       - crimson_nylium:7
       - red_nether_bricks:7
     6:
@@ -101,30 +101,3 @@ loot:
       unbreakable: ~
       enchants: ~
       item_flags: ~
-  - material: diamond_sword
-    amount: 1
-    chance: 100
-    meta:
-      name: "Test"
-      lore:
-        - "Test"
-        - "Test2"
-      custom_model: 69
-      unbreakable: true
-      enchants:
-        sharpness: 2
-      item_flags: ~
-  - material: iron_sword
-    amount: 1
-    chance: 100
-    meta:
-      name: "Test2"
-      lore:
-        - "Test2"
-        - "Test3"
-      custom_model: 69
-      unbreakable: true
-      enchants:
-        sharpness: 2
-      item_flags:
-        - hide_enchants
