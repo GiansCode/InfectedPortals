@@ -101,3 +101,30 @@ loot:
       unbreakable: ~
       enchants: ~
       item_flags: ~
+  - material: diamond_sword
+    amount: 1
+    chance: 50
+    meta:
+      name: "Test"
+      lore:
+        - "Test"
+        - "Test2"
+      custom_model: 69
+      unbreakable: true
+      enchants:
+        sharpness: 2
+      item_flags: ~
+  - material: iron_sword
+    amount: 1
+    chance: 50
+    meta:
+      name: "Test2"
+      lore:
+        - "Test2"
+        - "Test3"
+      custom_model: 69
+      unbreakable: true
+      enchants:
+        sharpness: 2
+      item_flags:
+        - hide_enchants

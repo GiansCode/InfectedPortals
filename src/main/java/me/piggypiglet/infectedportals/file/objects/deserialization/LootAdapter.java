@@ -45,17 +45,17 @@ public final class LootAdapter implements JsonDeserializer<ProbabilityCollection
             Optional.ofNullable(deserializedMeta.get("name")).map(String.class::cast).ifPresent(meta::setDisplayName);
             Optional.ofNullable(deserializedMeta.get("lore")).map(obj -> (List<String>) obj).ifPresent(meta::setLore);
             Optional.ofNullable(deserializedMeta.get("custom_model"))
-                    .map(double.class::cast)
-                    .map(int.class::cast)
+                    .map(Double.class::cast)
+                    .map(Double::intValue)
                     .ifPresent(meta::setCustomModelData);
-            Optional.ofNullable(deserializedMeta.get("unbreakable")).map(boolean.class::cast).ifPresent(meta::setUnbreakable);
+            Optional.ofNullable(deserializedMeta.get("unbreakable")).map(Boolean.class::cast).ifPresent(meta::setUnbreakable);
             Optional.ofNullable(deserializedMeta.get("enchants"))
-                    .map(obj -> (Map<String, Integer>) obj)
+                    .map(obj -> (Map<String, Double>) obj)
                     .map(enchants -> enchants.entrySet().stream()
                             .collect(Collectors.toMap(entry -> Enchantment.getByKey(NamespacedKey.minecraft(entry.getKey())), Map.Entry::getValue)))
-                    .ifPresent(enchants -> enchants.forEach((enchantment, level) -> meta.addEnchant(enchantment, level, true)));
+                    .ifPresent(enchants -> enchants.forEach((enchantment, level) -> meta.addEnchant(enchantment, level.intValue(), true)));
             Optional.ofNullable(deserializedMeta.get("item_flags"))
-                    .map(obj -> (Set<String>) obj)
+                    .map(obj -> (List<String>) obj)
                     .map(flags -> flags.stream().map(String::toUpperCase).map(ItemFlag::valueOf).toArray(ItemFlag[]::new))
                     .ifPresent(meta::addItemFlags);
 
