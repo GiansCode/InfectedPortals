@@ -38,15 +38,15 @@ public final class HelpCommand extends Command {
 
             final Command command = optionalCommand.get();
 
-            sender.sendMessage("&c/ft " + command.getPrefix() + " " + command.getUsage() + " &8- &7" + command.getDescription());
+            sender.sendMessage("&c/ip " + command.getPrefix() + " " + command.getUsage() + " &8- &7" + command.getDescription());
             return true;
         }
 
-        final StringBuilder builder = new StringBuilder("&7-------- &cFunkyTrees &7--------");
+        final StringBuilder builder = new StringBuilder("&7-------- &cInfectedPortals &7--------");
 
         commandHandler.getCommands().stream()
                 .sorted(Comparator.comparing(Command::getPrefix, String::compareToIgnoreCase))
-                .forEach(command -> builder.append("\n").append("&c/ft ").append(command.getPrefix()).append(" ")
+                .forEach(command -> builder.append("\n").append("&c/ip ").append(command.getPrefix()).append(" ")
                         .append(command.getUsage()).append(" &8- &7")
                         .append(command.getDescription()));
 
